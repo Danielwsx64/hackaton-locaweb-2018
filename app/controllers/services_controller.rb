@@ -21,6 +21,20 @@ class ServicesController < ApplicationController
     end
   end
 
+  def edit
+    @service = Service.find params[:id]
+  end
+
+  def update
+    @service = Service.find params[:id]
+
+    if @service.update_attributes(service_params)
+      redirect_to service_path(@service)
+    else
+      render 'new'
+    end
+  end
+
   private
 
   def service_params
