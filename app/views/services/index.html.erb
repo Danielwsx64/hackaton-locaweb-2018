@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-home">Serviços</h1>
+  <% @services.each do |service| %>
+    <b>Titulo:</b> <%= service.title %>
+    <b>Descrição:</b> <%= service.description %>
+    <b>Duração:</b> <%= service.duration %>
+    <b>Valor:</b> R$ <%= service.price %>
+  <% end %>
+</div>
