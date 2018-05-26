@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-home">Adicionar Serviço</h1>
+
+<%= form_for @service do |f| %>
+  Titulo: <%= f.text_field :title %><br />
+  Descrição: <%= f.text_area :description %><br />
+  Duração: <%= f.text_field :duration %><br />
+  Preço: <%= f.text_field :price %><br />
+  <%= f.submit 'Adicionar' %>
+<% end %>
+</div>
