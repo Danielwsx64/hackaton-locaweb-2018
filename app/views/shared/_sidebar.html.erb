@@ -9,18 +9,17 @@
         <li><a href="/locawebstyle/documentacao/exemplos/painel1/clients" class="ls-ico-users" title="Clientes">Clientes</a></li>
         <li><a href="/locawebstyle/documentacao/exemplos/painel1/stats" class="ls-ico-stats" title="Relatórios da revenda">Relatórios da revenda</a></li>
         <li>
-          <a href="#" class="ls-ico-cog" title="Configurações">Configurações</a>
+          <a href="#" class="ls-ico-star" title="Serviços">Serviços</a>
           <ul>
-            <li><a href="/locawebstyle/documentacao/exemplos/painel1/config-domain">Domínios da Revenda</a></li>
-            <li><a href="/locawebstyle/documentacao/exemplos/painel1/config-email">E-mail de Remetente</a></li>
-            <li><a href="/locawebstyle/documentacao/exemplos/painel1/config-aspect">Aparência</a></li>
-            <li><a href="/locawebstyle/documentacao/exemplos/painel1/config-answer">Atendimento</a></li>
-            <li><a href="/locawebstyle/documentacao/exemplos/painel1/config-api">Chave de acesso para API</a></li>
+            <li>
+              <%= link_to 'Lista de serviços', services_path %>
+            </li>
+            <li>
+              <%= link_to 'Cadastrar serviços', new_service_path %>
+            </li>
           </ul>
         </li>
       </ul>
     </nav>
-
-
   </div>
 </aside>
