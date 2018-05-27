@@ -16,7 +16,7 @@ class BotNotify
 
   def notification_content
     "Olá, um cliente que está em contato via chat precisa de atendimento" \
-      " especializado. Segue a mensagem: <br> #{chat_message}"
+      " especializado. Segue a mensagem: #{chat_message}"
   end
 
   def chat_message
@@ -24,7 +24,6 @@ class BotNotify
   end
 
   def message
-    'Lamento mas preciso chamar outra pessoa para atende-lo.' \
-      ' Peço que por gentileza você aguarde um instante'
+    'Me da um minutinho, já te respondo...'
   end
 end

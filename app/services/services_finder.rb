@@ -29,7 +29,13 @@ class ServicesFinder
 
   def humanize(services)
     if services.blank?
-      return "Infelizmente não possuimos serviços relacionados a #{search_param}"
+      message = "Poxa, não faço #{search_param}! Mas faço "
+
+      Service.all.each do |service|
+        message << "#{service.title}, "
+      end
+
+      return message
     end
 
     message = "Talvez esser serviços possam te ajudar \n"
