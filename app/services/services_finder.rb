@@ -38,12 +38,6 @@ class ServicesFinder
       return message
     end
 
-    message = "Talvez esser serviços possam te ajudar \n"
-
-    services.each do |service|
-      message << "#{service.title} - #{service.description}; \n"
-    end
-
-    message
+    'Faço sim!'
   end
 end

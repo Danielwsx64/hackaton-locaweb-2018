@@ -8,7 +8,8 @@ module Api
       services_finder: ServicesFinder,
       services_price: ServicesPrice,
       services_duration: ServicesDuration,
-      notify: BotNotify
+      notify: BotNotify,
+      services_when: ServicesWhen
     }
 
     def talk
