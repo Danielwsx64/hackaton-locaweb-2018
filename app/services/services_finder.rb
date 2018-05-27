@@ -14,7 +14,7 @@ class ServicesFinder
   attr_reader :params, :parser
 
   def services_found
-    Services.all.select do |service|
+    Service.all.select do |service|
       service.title.match(regex) || service.description.match(regex)
     end
   end
