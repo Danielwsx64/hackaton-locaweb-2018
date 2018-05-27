@@ -24,12 +24,19 @@ class SchedulePoint
     @task.service= service_found
     @task.save!
 
+    Notification.create(content: notification_content, read: false)
+
     parser.parse humanize
   end
 
   private
 
   attr_reader :params, :parser
+
+  def notification_content
+    "Olá, um cliente agendou a entrega de um #{service_found.title} para o dia" \
+      "#{@schedule.date_end.strftime("%d/%m/%Y")}."
+  end
 
   def service_found
     @service_found ||= Service.all.select do |service|
