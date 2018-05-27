@@ -63,11 +63,10 @@ class SchedulePoint
   end
 
   def date_end
-    #params[:queryResult][:parameters][:date]
     ServicesWhen.new({}).when_is_possible([ service_found ])
   end
 
   def humanize()
-    "O #{service_found.title} foi agendado para #{@schedule.date_end.strftime("%d/%m/%Y")}, amanhã entraremos em contato para maiores detalhes. Obrigado por nos escolher =D"
+    'Fechado! Mais tarde vou te pedir mais umas informações pra já começar a fazer. Obrigado! =D'
   end
 end

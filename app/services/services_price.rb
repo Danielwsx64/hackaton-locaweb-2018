@@ -15,7 +15,7 @@ class ServicesPrice
 
   def services_found
     Service.all.select do |service|
-      service.title.match(regex) || service.description.match(regex)
+      service.title.match(regex)
     end
   end
 
