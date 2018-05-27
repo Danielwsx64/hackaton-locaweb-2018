@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h1 class="ls-title-intro ls-ico-home">Cadastrar Serviço</h1>
 
-  <%= form_for @service, class: 'ls-form row' do |f| %>
+  <%= form_for @service, html: {class: 'ls-form row'} do |f| %>
     <label class="ls-label col-md-4">
       <b class="ls-label-text">Titulo</b>
       <%= f.text_field :title, placeholder: 'Título do serviço', required: true %>
@@ -24,6 +24,16 @@
         <%= f.text_field :price, class: 'ls-mask-money', placeholder: 0, required: true %>
       </div>
     </label>
+
+    <div class="ls-label col-md-4">
+      <b class="ls-label-text">Serviços Relacionados</b>
+      <% Service.all.each do |s| %>
+          <label class="ls-label-text">
+            <%= check_box_tag "service[related_service_ids][]", s.id %>
+            <%= s.title %>
+          </label>
+      <% end %>
+    </div>
 
     <label class="ls-label col-md-4">
       <%= f.submit 'Cadastrar', class: 'ls-btn-primary ls-float-right' %>

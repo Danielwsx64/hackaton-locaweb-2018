@@ -10,11 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_26_234043) do
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2018_05_27_015209) do
+=======
+ActiveRecord::Schema.define(version: 2018_05_27_003648) do
+>>>>>>> 86c1d38... Add create resource Schedule
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
+  create_table "additionals", force: :cascade do |t|
+    t.integer "service_id"
+    t.integer "related_service_id"
+=======
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+>>>>>>> 86c1d38... Add create resource Schedule
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+<<<<<<< HEAD
+=======
+  create_table "schedule_tasks", force: :cascade do |t|
+    t.bigint "schedule_id"
+    t.bigint "service_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_schedule_tasks_on_schedule_id"
+    t.index ["service_id"], name: "index_schedule_tasks_on_service_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_schedules_on_client_id"
+  end
+
+>>>>>>> 86c1d38... Add create resource Schedule
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -30,4 +68,5 @@ ActiveRecord::Schema.define(version: 2018_05_26_234043) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "schedules", "clients"
 end

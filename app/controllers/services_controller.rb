@@ -5,6 +5,7 @@ class ServicesController < ApplicationController
 
   def new
     @service = Service.new
+    @services = Service.all
   end
 
   def show
@@ -38,6 +39,6 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:title, :description, :duration, :price)
+    params.require(:service).permit(:title, :description, :duration, :price, related_service_ids: [])
   end
 end
