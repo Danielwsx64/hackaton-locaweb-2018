@@ -1,4 +1,4 @@
-class ServicesAll
+class ServicesFinder
   def initialize(params, parser=DialogFlowParser)
     @params = params
     @parser = parser
@@ -8,7 +8,6 @@ class ServicesAll
     message = humanize(services_found)
     parser.parse message
   end
-
 
   private
 
