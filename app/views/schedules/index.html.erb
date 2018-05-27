@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <h1 class="ls-title-intro ls-ico-calendar">Cronograma</h1>
+  <div id='calendar'></div>
+</div>
+
+<% content_for :bottom_scripts do %>
+
+  <script>
+
+$(document).ready(function() {
+
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay,listWeek'
+
+    },
+    defaultDate: '<%= Time.now.strftime("%Y/%m/%d") %>',
+    navLinks: true, // can click day/week names to navigate views
+    editable: true,
+    eventLimit: true, // allow "more" link when too many events
+    events: [
+      <% @schedules.each do |schedule| %>
+        {
+          title: '<%= "#{schedule.client.name} - #{schedule.services.first.title}..." %>',
+          start: '<%=  schedule.date_start.strftime("%Y/%m/%d") %>',
+          end: '<%= schedule.date_end.strftime("%Y/%m/%d") %>',
+          url: '<%= schedule_path(schedule) %>'
+
+        },
+      <% end %>
+    ]
+  });
+});
+
+  </script>
+<% end %>
