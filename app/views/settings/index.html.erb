@@ -1,9 +1,23 @@
 <div class="container-fluid">
   <h1 class="ls-title-intro ls-ico-cog">Configurações</h1>
-  <% @settings.each do |settings| %>
-    <b>Horas disponiveis no dia:</b> <%= settings.work_hours %>
+  <% if @settings.empty? %>
+    <%= link_to 'Adicionar Configuração', new_setting_path %>
+  <% else %>
+    <table class="ls-table ls-table-striped">
+      <thead>
+        <tr>
+          <th>Horas disponíveis no dia</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @settings.each do |setting| %>
+            <td><%= setting.work_hours %> </td>
+            <td><%= link_to 'Editar', edit_setting_path(setting) %>
+          <% end %>
+      </tbody>
+    </table>
   <% end %>
 </div>
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'New Setting', new_setting_path %>

@@ -28,7 +28,7 @@ class SettingsController < ApplicationController
 
     respond_to do |format|
       if @setting.save
-        format.html { redirect_to @setting, notice: 'Setting was successfully created.' }
+        format.html { redirect_to settings_path, notice: 'Setting was successfully created.' }
         format.json { render :show, status: :created, location: @setting }
       else
         format.html { render :new }
