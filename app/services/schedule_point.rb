@@ -61,6 +61,6 @@ class SchedulePoint
   end
 
   def humanize()
-    "O #{service_found.title} foi agendado para #{@schedule.date_end}, amanhã entraremos em contato para maiores detalhes. Obrigado por nos escolher =D"
+    "O #{service_found.title} foi agendado para #{@schedule.date_end.strftime("%d/%m/%Y")}, amanhã entraremos em contato para maiores detalhes. Obrigado por nos escolher =D"
   end
 end
