@@ -6,7 +6,8 @@ module Api
     ACTIONS_SERVICES = {
       test: ServicesAll,
       services_all: ServicesAll,
-      services_finder: ServicesFinder
+      services_finder: ServicesFinder,
+      services_price: ServicesPrice
     }
 
     def talk
