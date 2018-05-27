@@ -1,6 +1,5 @@
 module Api
   class BotController < ApplicationController
-
     skip_before_action :verify_authenticity_token
 
     ACTIONS_SERVICES = {
