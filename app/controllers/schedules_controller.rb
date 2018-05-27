@@ -1,7 +1,7 @@
 class SchedulesController < ApplicationController
 
   def index
-    @schedules = Schedule.all
+    @schedules = Schedule.where(closed: true)
   end
 
   def show
@@ -33,7 +33,7 @@ class SchedulesController < ApplicationController
   private
 
   def schedule_params
-    params.require(:schedule).permit(:date_start, :date_end)
+    params.require(:schedule).permit(:date_start, :date_end, :closed)
   end
 
   def schedule_client

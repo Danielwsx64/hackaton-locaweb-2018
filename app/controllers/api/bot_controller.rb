@@ -7,7 +7,9 @@ module Api
       test: ServicesAll,
       services_all: ServicesAll,
       services_finder: ServicesFinder,
-      services_price: ServicesPrice
+      services_price: ServicesPrice,
+      services_duration: ServicesDuration,
+      notify: BotNotify
     }
 
     def talk

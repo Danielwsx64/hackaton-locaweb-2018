@@ -11,10 +11,18 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_05_27_015209) do
 =======
 ActiveRecord::Schema.define(version: 2018_05_27_003648) do
 >>>>>>> 86c1d38... Add create resource Schedule
+=======
+ActiveRecord::Schema.define(version: 2018_05_27_115651) do
+>>>>>>> 7a34a19... Add fb_id on client and closed? on schedule
+=======
+ActiveRecord::Schema.define(version: 2018_05_27_111042) do
+>>>>>>> 845be85... Add bot notify
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +38,21 @@ ActiveRecord::Schema.define(version: 2018_05_27_003648) do
 >>>>>>> 86c1d38... Add create resource Schedule
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "fb_id"
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+  create_table "notifications", force: :cascade do |t|
+    t.string "content"
+    t.boolean "read"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> 845be85... Add bot notify
   create_table "schedule_tasks", force: :cascade do |t|
     t.bigint "schedule_id"
     t.bigint "service_id"
@@ -49,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_05_27_003648) do
     t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "closed", default: false
     t.index ["client_id"], name: "index_schedules_on_client_id"
   end
 
