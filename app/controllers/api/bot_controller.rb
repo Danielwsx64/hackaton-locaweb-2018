@@ -1,5 +1,8 @@
 module Api
   class BotController < ApplicationController
+
+    skip_before_filter :verify_authenticity_token
+
     ACTIONS_SERVICES = {
       all_services: ServicesAll,
     }
