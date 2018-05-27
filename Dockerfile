@@ -9,6 +9,5 @@ ADD Gemfile /hackathon-argentina/Gemfile
 ADD Gemfile.lock /hackathon-argentina/Gemfile.lock
 
 RUN bundle install
+
 ADD . /hackathon-argentina
-RUN bin/setup
-RUN bundle exec rails db:migrate
