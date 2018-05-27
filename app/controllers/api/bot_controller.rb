@@ -4,18 +4,19 @@ module Api
     skip_before_action :verify_authenticity_token
 
     ACTIONS_SERVICES = {
-      all_services: ServicesAll,
+      test: ServicesAll,
+      services_all: ServicesAll,
+      services_finder: ServicesFinder
     }
 
     def talk
-      puts params
       render json: service.new(params).execute
     end
 
     private
 
     def action
-      :all_services
+      params[:queryResult][:action].to_sym
     end
 
     def service
