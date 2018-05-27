@@ -31,13 +31,33 @@
     <script src='/js/fullcalendar.js'></script>
 
     <script>
-      $(document).ready(function() {
+      function trigger_close_notification(){
         $('.ls-close-notification').click(function(){
           $.ajax({
             url: '/notifications/' + $(this).data('notificationId'),
             type: 'DELETE'
           });
         });
+      }
+
+      function fetch_notifications(){
+        $.ajax({
+          url: '/notifications',
+          type: 'GET',
+          success: function(result) {
+            if($.trim(result)) {
+              console.log('entro');
+              $('#notifications-container').html(result);
+              locastyle.init();
+              trigger_close_notification();
+            }
+          }
+        });
+      }
+
+      $(document).ready(function() {
+        trigger_close_notification();
+        setInterval(function(){ fetch_notifications();  }, 10000);
       });
     </script>
 

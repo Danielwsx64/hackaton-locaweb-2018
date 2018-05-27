@@ -1,0 +1,6 @@
+<% @notifications.each do |notification| %>
+  <li class="ls-dismissable">
+    <a href="#"><%= notification.content %></a>
+    <a href="#" data-ls-module="dismiss" data-notification-id="<%= notification.id %>" class="ls-ico-close ls-close-notification"></a>
+  </li>
+<% end %>

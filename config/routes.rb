@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :schedules
 
   delete '/notifications/:id', to: 'notifications#destroy'
+  get '/notifications', to: 'notifications#index'
 
   namespace :api do
     post '/bot', to: 'bot#talk'

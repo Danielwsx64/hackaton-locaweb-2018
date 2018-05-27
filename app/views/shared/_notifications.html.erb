@@ -1,7 +1,7 @@
 <aside class="ls-notification">
   <nav class="ls-notification-list" id="ls-notification-curtain" style="left: 1716px;">
     <h3 class="ls-title-2">Notificações</h3>
-    <ul>
+    <ul id='notifications-container'>
       <% @notifications.each do |notification| %>
         <li class="ls-dismissable">
           <a href="#"><%= notification.content %></a>
