@@ -35,7 +35,7 @@ class ServicesPrice
     message = ""
 
     services.each do |service|
-      message << "O preço de #{service.title} é #{service.price}; \n"
+      message << "O preço de #{service.title} é R$ #{service.price}; \n"
     end
 
     message
