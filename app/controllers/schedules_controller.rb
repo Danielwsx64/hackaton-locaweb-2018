@@ -26,6 +26,8 @@ class SchedulesController < ApplicationController
       task.service= Service.find service_id
       task.save!
     end
+
+    redirect_to schedules_path
   end
 
   private

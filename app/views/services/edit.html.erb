@@ -27,8 +27,9 @@
 
     <div class="ls-label col-md-4">
       <b class="ls-label-text">Serviços Relacionados</b>
+      <br>
       <% Service.all.each do |s| %>
-          <label class="ls-label-text">
+          <label class="ls-label-text ls-no-bold">
             <%= check_box_tag "service[related_service_ids][]", s.id, @service.related_services.include?(s) %>
             <%= s.title %>
           </label>

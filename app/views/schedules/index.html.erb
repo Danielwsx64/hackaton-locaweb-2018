@@ -26,6 +26,7 @@ $(document).ready(function() {
           title: '<%= "#{schedule.client.name} - #{schedule.services.first.title}..." %>',
           start: '<%=  schedule.date_start.strftime("%Y/%m/%d") %>',
           end: '<%= schedule.date_end.strftime("%Y/%m/%d") %>',
+          color: '<%= event_color(schedule) %>',
           url: '<%= schedule_path(schedule) %>'
 
         },
