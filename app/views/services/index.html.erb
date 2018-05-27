@@ -1,9 +1,30 @@
 <div class="container-fluid">
   <h1 class="ls-title-intro ls-ico-star">Serviços</h1>
-  <% @services.each do |service| %>
-    <b>Titulo:</b> <%= service.title %>
-    <b>Descrição:</b> <%= service.description %>
-    <b>Duração:</b> <%= service.duration %>
-    <b>Valor:</b> R$ <%= service.price %>
-  <% end %>
+
+  <table class="ls-table">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th class="hidden-xs">Descrição</th>
+        <th>Duração</th>
+        <th>Valor</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @services.each do |service| %>
+        <tr>
+          <td>
+            <%= link_to service.title, service_path(service) %>
+          </td>
+          <td class="hidden-xs"><%= service.description %></td>
+          <td><%= service.duration %></td>
+          <td>R$ <%= service.price %></td>
+          <td>
+            <%= link_to '', edit_service_path(service), class: 'ls-btn-primary ls-ico-pencil2' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

@@ -1,11 +1,32 @@
 <div class="container-fluid">
   <h1 class="ls-title-intro ls-ico-star">Editar Serviço</h1>
 
-<%= form_for @service do |f| %>
-  Titulo: <%= f.text_field :title %><br />
-  Descrição: <%= f.text_area :description %><br />
-  Duração: <%= f.text_field :duration %><br />
-  Preço: <%= f.text_field :price %><br />
-  <%= f.submit 'Salvar' %>
-<% end %>
+  <%= form_for @service, class: 'ls-form row' do |f| %>
+    <label class="ls-label col-md-4">
+      <b class="ls-label-text">Titulo</b>
+      <%= f.text_field :title, placeholder: 'Título do serviço' %>
+    </label>
+
+    <label class="ls-label col-md-4">
+      <b class="ls-label-text">Descrição</b>
+      <%= f.text_area :description %>
+    </label>
+
+    <label class="ls-label col-md-2">
+      <b class="ls-label-text">Duração</b>
+      <%= f.text_field :duration, required: true %>
+    </label>
+
+    <label class="ls-label col-md-2">
+      <b class="ls-label-text">Valor</b>
+      <div class="ls-prefix-group">
+        <span class="ls-label-text-prefix">R$</span>
+        <%= f.text_field :price, class: 'ls-mask-money', placeholder: 0, required: true %>
+      </div>
+    </label>
+
+    <label class="ls-label col-md-4">
+      <%= f.submit 'Salvar', class: 'ls-btn-primary ls-float-right' %>
+    </label>
+  <% end %>
 </div>
