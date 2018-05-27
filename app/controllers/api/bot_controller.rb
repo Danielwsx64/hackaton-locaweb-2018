@@ -9,7 +9,8 @@ module Api
       services_price: ServicesPrice,
       services_duration: ServicesDuration,
       notify: BotNotify,
-      services_when: ServicesWhen
+      services_when: ServicesWhen,
+      schedules_point: SchedulePoint
     }
 
     def talk

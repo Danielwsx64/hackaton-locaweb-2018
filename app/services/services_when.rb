@@ -9,6 +9,22 @@ class ServicesWhen
     parser.parse message
   end
 
+  def when_is_possible(services)
+    duration = 0
+    services.each do |s|
+      duration += s.duration
+    end
+
+    days = duration / Setting.first.work_hours
+
+    if Schedule.any?
+      schedule = Schedule.order(date_end: :desc).first
+      schedule.date_end + days.round.days
+    else
+      Time.now + days.round.days
+    end
+  end
+
   private
 
   attr_reader :params, :parser
@@ -37,22 +53,5 @@ class ServicesWhen
     message = "Eu consigo entregar esse serviço no dia #{date.strftime("%d/%m/%Y")}"
 
     message
-  end
-
-  def when_is_possible(services)
-    duration = 0
-    services.each do |s|
-      duration += s.duration
-    end
-
-    days = duration / Setting.first.work_hours
-
-
-    if Schedule.any?
-      schedule = Schedule.order(end_date: :desc).take(1)
-      schedule.end_date + days.round.days
-    else
-      Time.now + days.round.days
-    end
   end
 end
